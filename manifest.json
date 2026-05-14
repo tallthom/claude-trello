@@ -1,0 +1,39 @@
+{
+  "manifest_version": "0.3",
+  "name": "moodle-trello",
+  "display_name": "Moodle Trello",
+  "version": "1.0.0",
+  "description": "Trello integration for Claude Desktop. View boards, manage cards, move tasks, and add comments.",
+  "author": {
+    "name": "Thom Rawson",
+    "url": "https://github.com/tallthom"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "node_modules/.bin/atlassian-trello-mcp",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/node_modules/atlassian-trello-mcp/dist/index.js"],
+      "env": {
+        "TRELLO_API_KEY": "${user_config.trello_api_key}",
+        "TRELLO_TOKEN": "${user_config.trello_token}"
+      }
+    }
+  },
+  "user_config": {
+    "trello_api_key": {
+      "type": "string",
+      "title": "Trello API Key",
+      "description": "From trello.com/power-ups/admin → select your Power-Up (or create one) → API Key.",
+      "sensitive": false,
+      "required": true
+    },
+    "trello_token": {
+      "type": "string",
+      "title": "Trello Token",
+      "description": "On the same API Key page, click 'Generate a Token' and authorise access.",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}
