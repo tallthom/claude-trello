@@ -1,16 +1,17 @@
-# Moodle Trello — Claude Desktop Extension
+# Claude Trello — Claude Desktop Extension
 
 A Claude Desktop Extension that connects Claude to [Trello](https://trello.com), letting you view boards, manage cards, move tasks, and add comments directly from Claude.
 
 ## Installation
 
-1. Download `moodle-trello.mcpb` from the [latest release](../../releases/latest)
-2. Open the file — Claude Desktop will prompt you to install it
-3. Enter your Trello credentials when prompted (see below)
+1. Download `claude-trello.mcpb` from the [latest release](../../releases/latest)
+2. Go to [claude.ai/settings](https://claude.ai/settings) → **Extensions**
+3. Click **Add Extension** and select the downloaded `.mcpb` file
+4. Enter your Trello credentials when prompted (see below)
 
 Supported on **macOS** and **Windows**.
 
-> **Security prompt:** During installation, Claude Desktop will warn that "developer information has not been verified by Anthropic." This is shown for all third-party extensions — Anthropic doesn't yet offer a developer verification programme. This extension is built and maintained by the Moodle team; you can review the full source in this repository.
+> **Security prompt:** During installation, Claude will warn that "developer information has not been verified by Anthropic." This is shown for all third-party extensions — Anthropic doesn't yet offer a developer verification programme. You can review the full source in this repository.
 
 ## Getting your Trello credentials
 

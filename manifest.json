@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
-  "name": "moodle-trello",
-  "display_name": "Moodle Trello",
+  "name": "claude-trello",
+  "display_name": "Claude Trello",
   "version": "1.0.0",
   "description": "Trello integration for Claude Desktop. View boards, manage cards, move tasks, and add comments.",
   "author": {
