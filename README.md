@@ -4,14 +4,34 @@ A Claude Desktop Extension that connects Claude to [Trello](https://trello.com),
 
 ## Installation
 
+### Claude Desktop (macOS and Windows)
+
 1. Download `claude-trello.mcpb` from the [latest release](../../releases/latest)
 2. Go to [claude.ai/settings](https://claude.ai/settings) → **Extensions**
 3. Click **Add Extension** and select the downloaded `.mcpb` file
 4. Enter your Trello credentials when prompted (see below)
 
-Supported on **macOS** and **Windows**.
-
 > **Security prompt:** During installation, Claude will warn that "developer information has not been verified by Anthropic." This is shown for all third-party extensions — Anthropic doesn't yet offer a developer verification programme. You can review the full source in this repository.
+
+### Claude CLI / Linux
+
+1. Install the MCP server: `npm install -g atlassian-trello-mcp`
+2. Add the following to your Claude CLI MCP config (`~/.claude/settings.json` → `mcpServers`):
+
+```json
+{
+  "mcpServers": {
+    "trello": {
+      "command": "npx",
+      "args": ["-y", "atlassian-trello-mcp"],
+      "env": {
+        "TRELLO_API_KEY": "your_api_key",
+        "TRELLO_TOKEN": "your_token"
+      }
+    }
+  }
+}
+```
 
 ## Getting your Trello credentials
 
