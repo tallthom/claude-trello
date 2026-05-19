@@ -209,5 +209,6 @@ export declare function validateDeleteCard(data: unknown): {
     cardId: string;
 };
 export declare function formatValidationError(error: z.ZodError): string;
+export declare function formatError(error: unknown): string;
 export {};
 //# sourceMappingURL=validation.d.ts.map

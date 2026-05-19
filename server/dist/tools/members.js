@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { formatValidationError, extractCredentials } from '../utils/validation.js';
+import { formatError, extractCredentials } from '../utils/validation.js';
 const validateGetUserBoards = (args) => {
     const schema = z.object({
         filter: z.enum(['all', 'open', 'closed']).optional()
@@ -91,11 +91,7 @@ export async function handleTrelloGetUserBoards(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -197,11 +193,7 @@ export async function handleTrelloGetMember(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {

@@ -1,7 +1,7 @@
 import type { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 
 const validateGetListCards = (args: unknown) => {
   const schema = z.object({
@@ -136,11 +136,7 @@ export async function handleTrelloGetListCards(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -233,11 +229,7 @@ export async function handleTrelloCreateList(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -319,11 +311,7 @@ export async function handleTrelloAddComment(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [

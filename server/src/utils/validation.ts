@@ -149,3 +149,10 @@ export function formatValidationError(error: z.ZodError): string {
   });
   return `Validation error: ${issues.join(', ')}`;
 }
+
+export function formatError(error: unknown): string {
+  if (error instanceof z.ZodError) return formatValidationError(error);
+  if (error instanceof Error) return error.message;
+  if (error && typeof error === 'object' && 'message' in error) return String((error as { message: unknown }).message);
+  return 'Unknown error occurred';
+}

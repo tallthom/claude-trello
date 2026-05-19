@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { validateCreateCard, validateUpdateCard, validateMoveCard, validateGetCard, formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { validateCreateCard, validateUpdateCard, validateMoveCard, validateGetCard, formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 import { IMAGE_MIME_TYPES, MAX_IMAGE_BYTES, isAllowedAttachmentUrl, imageDownloadEnabled } from '../utils/imageDownload.js';
 export const createCardTool = {
     name: 'create_card',
@@ -106,11 +106,7 @@ export async function handleCreateCard(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -220,11 +216,7 @@ export async function handleUpdateCard(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -298,11 +290,7 @@ export async function handleMoveCard(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -448,11 +436,7 @@ export async function handleGetCard(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -524,11 +508,7 @@ export async function handleArchiveCard(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {

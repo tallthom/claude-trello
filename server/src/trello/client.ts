@@ -905,11 +905,20 @@ export class TrelloClient {
   }
 
   async deleteCheckItem(checklistId: string, checkItemId: string): Promise<TrelloApiResponse<void>> {
-    return this.makeRequest<void>(
-      `/checklists/${checklistId}/checkItems/${checkItemId}`,
-      { method: 'DELETE' },
-      `Delete check item ${checkItemId}`
-    );
+    // Trello's DELETE /checklists/{id}/checkItems/{id} returns HTTP 400 with body
+    // "invalid check item" but does delete the item — swallow 400 as success.
+    try {
+      return await this.makeRequest<void>(
+        `/checklists/${checklistId}/checkItems/${checkItemId}`,
+        { method: 'DELETE' },
+        `Delete check item ${checkItemId}`
+      );
+    } catch (error: unknown) {
+      if (error instanceof Response && error.status === 400) {
+        return { data: null as unknown as void, rateLimit: undefined };
+      }
+      throw error;
+    }
   }
 
   async updateCheckItem(cardId: string, checkItemId: string, updates: UpdateCheckItemRequest): Promise<TrelloApiResponse<TrelloCheckItem>> {

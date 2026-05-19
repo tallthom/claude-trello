@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 // --- Validators ---
 const validateCreateChecklist = (args) => {
     const schema = z.object({
@@ -105,11 +105,7 @@ const validateUpdateCheckItem = (args) => {
 };
 // --- Error helper ---
 function handleToolError(error, operation) {
-    const errorMessage = error instanceof z.ZodError
-        ? formatValidationError(error)
-        : error instanceof Error
-            ? error.message
-            : 'Unknown error occurred';
+    const errorMessage = formatError(error);
     return {
         content: [{ type: 'text', text: `Error ${operation}: ${errorMessage}` }],
         isError: true

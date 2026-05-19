@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "claude-trello",
   "display_name": "Claude Trello",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Trello integration for Claude Desktop. View boards, manage cards, move tasks, and add comments.",
   "author": {
     "name": "Thom Rawson",

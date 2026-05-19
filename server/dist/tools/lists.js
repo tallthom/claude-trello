@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 const validateGetListCards = (args) => {
     const schema = z.object({
         listId: trelloIdSchema,
@@ -124,11 +124,7 @@ export async function handleTrelloGetListCards(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -214,11 +210,7 @@ export async function handleTrelloCreateList(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -295,11 +287,7 @@ export async function handleTrelloAddComment(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {

@@ -6,7 +6,7 @@ import {
   validateUpdateCard,
   validateMoveCard,
   validateGetCard,
-  formatValidationError,
+  formatError,
   trelloIdSchema,
   extractCredentials
 } from '../utils/validation.js';
@@ -124,11 +124,7 @@ export async function handleCreateCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -243,11 +239,7 @@ export async function handleUpdateCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -326,11 +318,7 @@ export async function handleMoveCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -488,11 +476,7 @@ export async function handleGetCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -570,11 +554,7 @@ export async function handleArchiveCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [

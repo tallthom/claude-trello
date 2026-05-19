@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { validateListBoards, validateGetBoard, validateGetBoardLists, formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { validateListBoards, validateGetBoard, validateGetBoardLists, formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 export const listBoardsTool = {
     name: 'list_boards',
     description: 'List all Trello boards accessible to the user. Use this to see all boards you have access to, or filter by status.',
@@ -55,11 +55,7 @@ export async function handleListBoards(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -180,11 +176,7 @@ export async function handleGetBoardDetails(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -253,11 +245,7 @@ export async function handleGetLists(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {
@@ -331,11 +319,7 @@ export async function handleTrelloFilterLists(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {

@@ -1,7 +1,7 @@
 import type { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 
 function truncateText(text: string | undefined | null, maxLength: number): string {
   if (!text) return '';
@@ -314,11 +314,7 @@ export async function handleTrelloGetBoardCards(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -418,11 +414,7 @@ export async function handleTrelloGetCardActions(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -506,11 +498,7 @@ export async function handleTrelloGetCardAttachments(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -599,11 +587,7 @@ export async function handleTrelloGetCardChecklists(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -674,11 +658,7 @@ export async function handleTrelloGetBoardMembers(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -746,11 +726,7 @@ export async function handleTrelloGetBoardLabels(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -827,11 +803,7 @@ export async function handleTrelloCreateLabel(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -908,11 +880,7 @@ export async function handleTrelloUpdateLabel(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -979,11 +947,7 @@ export async function handleTrelloAddLabelToCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1050,11 +1014,7 @@ export async function handleTrelloRemoveLabelFromCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1154,11 +1114,7 @@ export async function handleTrelloCreateCardAttachment(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1247,11 +1203,7 @@ export async function handleTrelloGetCardAttachment(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1316,11 +1268,7 @@ export async function handleTrelloDeleteCardAttachment(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1393,11 +1341,7 @@ export async function handleTrelloGetBoardCustomFields(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1495,11 +1439,7 @@ export async function handleTrelloAddMemberToCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1564,11 +1504,7 @@ export async function handleTrelloRemoveMemberFromCard(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
@@ -1628,11 +1564,7 @@ export async function handleTrelloDeleteLabel(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TrelloClient } from '../trello/client.js';
-import { formatValidationError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
+import { formatError, trelloIdSchema, extractCredentials } from '../utils/validation.js';
 const validateSearch = (args) => {
     const schema = z.object({
         query: z.string().min(1, 'Search query is required'),
@@ -205,11 +205,7 @@ export async function handleTrelloSearch(args) {
         };
     }
     catch (error) {
-        const errorMessage = error instanceof z.ZodError
-            ? formatValidationError(error)
-            : error instanceof Error
-                ? error.message
-                : 'Unknown error occurred';
+        const errorMessage = formatError(error);
         return {
             content: [
                 {

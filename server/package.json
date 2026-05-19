@@ -1,0 +1,25 @@
+{
+  "name": "claude-trello-server",
+  "version": "1.0.1",
+  "description": "Claude Trello MCP server — full Trello API integration for Claude",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "pino": "^10.2.1",
+    "pino-pretty": "^13.1.3",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.3",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

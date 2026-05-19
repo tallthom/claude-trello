@@ -120,4 +120,13 @@ export function formatValidationError(error) {
     });
     return `Validation error: ${issues.join(', ')}`;
 }
+export function formatError(error) {
+    if (error instanceof z.ZodError)
+        return formatValidationError(error);
+    if (error instanceof Error)
+        return error.message;
+    if (error && typeof error === 'object' && 'message' in error)
+        return String(error.message);
+    return 'Unknown error occurred';
+}
 //# sourceMappingURL=validation.js.map

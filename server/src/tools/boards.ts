@@ -5,7 +5,7 @@ import {
   validateListBoards,
   validateGetBoard,
   validateGetBoardLists,
-  formatValidationError,
+  formatError,
   trelloIdSchema,
   extractCredentials
 } from '../utils/validation.js';
@@ -67,11 +67,7 @@ export async function handleListBoards(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -196,11 +192,7 @@ export async function handleGetBoardDetails(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -274,11 +266,7 @@ export async function handleGetLists(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError 
-      ? formatValidationError(error)
-      : error instanceof Error 
-        ? error.message 
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
         
     return {
       content: [
@@ -358,11 +346,7 @@ export async function handleTrelloFilterLists(args: unknown) {
       ]
     };
   } catch (error) {
-    const errorMessage = error instanceof z.ZodError
-      ? formatValidationError(error)
-      : error instanceof Error
-        ? error.message
-        : 'Unknown error occurred';
+    const errorMessage = formatError(error);
 
     return {
       content: [
