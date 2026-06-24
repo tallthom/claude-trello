@@ -7,14 +7,6 @@ export const listBoardsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             filter: {
                 type: 'string',
                 enum: ['all', 'open', 'closed'],
@@ -73,14 +65,6 @@ export const getBoardDetailsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board (e.g. "abc123" or "https://trello.com/b/abc123/board-name")'
@@ -194,14 +178,6 @@ export const getListsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board (e.g. "abc123" or "https://trello.com/b/abc123/board-name")'
@@ -270,14 +246,6 @@ export const trelloFilterListsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board (e.g. "abc123" or "https://trello.com/b/abc123/board-name")'

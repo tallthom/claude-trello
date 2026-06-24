@@ -118,8 +118,6 @@ export const trelloCreateChecklistTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             cardId: { type: 'string', description: 'ID of the card to add the checklist to' },
             name: { type: 'string', description: 'Name of the checklist', minLength: 1 },
             idChecklistSource: { type: 'string', description: 'Optional: ID of a checklist to copy items from' },
@@ -134,8 +132,6 @@ export const trelloGetChecklistTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' },
             fields: { type: 'array', items: { type: 'string' }, description: 'Optional: specific fields to include' }
         },
@@ -148,8 +144,6 @@ export const trelloUpdateChecklistTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist to update' },
             name: { type: 'string', description: 'New name for the checklist' },
             pos: { oneOf: [{ type: 'string', enum: ['top', 'bottom'] }, { type: 'number', minimum: 0 }], description: 'New position' }
@@ -163,8 +157,6 @@ export const trelloDeleteChecklistTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist to delete' }
         },
         required: ['checklistId']
@@ -176,8 +168,6 @@ export const trelloGetChecklistFieldTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' },
             field: { type: 'string', enum: ['name', 'pos'], description: 'Field to retrieve' }
         },
@@ -190,8 +180,6 @@ export const trelloUpdateChecklistFieldTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' },
             field: { type: 'string', enum: ['name', 'pos'], description: 'Field to update' },
             value: { type: 'string', description: 'New value for the field' }
@@ -205,8 +193,6 @@ export const trelloGetBoardForChecklistTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' }
         },
         required: ['checklistId']
@@ -218,8 +204,6 @@ export const trelloGetCardForChecklistTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' }
         },
         required: ['checklistId']
@@ -231,8 +215,6 @@ export const trelloGetCheckItemsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' },
             filter: { type: 'string', enum: ['all', 'complete', 'incomplete'], description: 'Filter items by state. Default: all', default: 'all' }
         },
@@ -245,8 +227,6 @@ export const trelloCreateCheckItemTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist to add the item to' },
             name: { type: 'string', description: 'Text of the check item', minLength: 1 },
             pos: { oneOf: [{ type: 'string', enum: ['top', 'bottom'] }, { type: 'number', minimum: 0 }], description: 'Position: "top", "bottom", or a number' },
@@ -263,8 +243,6 @@ export const trelloGetCheckItemTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' },
             checkItemId: { type: 'string', description: 'ID of the check item' }
         },
@@ -277,8 +255,6 @@ export const trelloDeleteCheckItemTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             checklistId: { type: 'string', description: 'ID of the checklist' },
             checkItemId: { type: 'string', description: 'ID of the check item to delete' }
         },
@@ -291,8 +267,6 @@ export const trelloUpdateCheckItemTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: { type: 'string', description: 'Trello API key (optional if TRELLO_API_KEY env var is set)' },
-            token: { type: 'string', description: 'Trello API token (optional if TRELLO_TOKEN env var is set)' },
             cardId: { type: 'string', description: 'ID of the card the check item belongs to' },
             checkItemId: { type: 'string', description: 'ID of the check item to update' },
             name: { type: 'string', description: 'New name for the check item' },

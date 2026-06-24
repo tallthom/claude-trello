@@ -39,14 +39,6 @@ export const trelloGetListCardsTool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      apiKey: {
-        type: 'string',
-        description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-      },
-      token: {
-        type: 'string',
-        description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-      },
       listId: {
         type: 'string',
         description: 'ID of the list to get cards from (you can get this from get_lists)'
@@ -156,14 +148,6 @@ export const trelloCreateListTool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      apiKey: {
-        type: 'string',
-        description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-      },
-      token: {
-        type: 'string',
-        description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-      },
       name: {
         type: 'string',
         description: 'Name of the new list (e.g., "To Do", "In Progress", "Done")',
@@ -249,14 +233,6 @@ export const trelloAddCommentTool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      apiKey: {
-        type: 'string',
-        description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-      },
-      token: {
-        type: 'string',
-        description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-      },
       cardId: {
         type: 'string',
         description: 'ID or URL of the card to add comment to (e.g. "abc123" or "https://trello.com/c/abc123/1-title")'

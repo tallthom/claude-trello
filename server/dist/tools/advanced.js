@@ -130,14 +130,6 @@ export const trelloGetBoardCardsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board (e.g. "abc123" or "https://trello.com/b/abc123/board-name")',
@@ -283,14 +275,6 @@ export const trelloGetCardActionsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card (e.g. "abc123" or "https://trello.com/c/abc123/1-title")',
@@ -377,14 +361,6 @@ export const trelloGetCardAttachmentsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card (e.g. "abc123" or "https://trello.com/c/abc123/1-title")',
@@ -455,14 +431,6 @@ export const trelloGetCardChecklistsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card (e.g. "abc123" or "https://trello.com/c/abc123/1-title")',
@@ -538,14 +506,6 @@ export const trelloGetBoardMembersTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board (e.g. "abc123" or "https://trello.com/b/abc123/board-name")',
@@ -603,14 +563,6 @@ export const trelloGetBoardLabelsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board (e.g. "abc123" or "https://trello.com/b/abc123/board-name")',
@@ -665,14 +617,6 @@ export const trelloCreateLabelTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board where the label will be created',
@@ -736,14 +680,6 @@ export const trelloUpdateLabelTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             labelId: {
                 type: 'string',
                 description: 'ID of the label to update',
@@ -807,14 +743,6 @@ export const trelloAddLabelToCardTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID of the card to label',
@@ -867,14 +795,6 @@ export const trelloRemoveLabelFromCardTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID of the card to remove the label from',
@@ -928,14 +848,6 @@ export const trelloCreateCardAttachmentTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card (e.g. "abc123" or "https://trello.com/c/abc123/1-title")'
@@ -1021,14 +933,6 @@ export const trelloGetCardAttachmentTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card (e.g. "abc123" or "https://trello.com/c/abc123/1-title")'
@@ -1105,14 +1009,6 @@ export const trelloDeleteCardAttachmentTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card (e.g. "abc123" or "https://trello.com/c/abc123/1-title")'
@@ -1165,14 +1061,6 @@ export const trelloGetBoardCustomFieldsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             boardId: {
                 type: 'string',
                 description: 'ID or URL of the board to get custom fields from'
@@ -1254,14 +1142,6 @@ export const trelloAddMemberToCardTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card'
@@ -1319,14 +1199,6 @@ export const trelloRemoveMemberFromCardTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             cardId: {
                 type: 'string',
                 description: 'ID or URL of the card'
@@ -1379,14 +1251,6 @@ export const trelloDeleteLabelTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             labelId: {
                 type: 'string',
                 description: 'ID of the label to delete'

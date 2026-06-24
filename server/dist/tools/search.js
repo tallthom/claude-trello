@@ -29,14 +29,6 @@ export const trelloSearchTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             query: {
                 type: 'string',
                 description: 'Search term or phrase to find in Trello content',

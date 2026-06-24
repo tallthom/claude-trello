@@ -22,14 +22,6 @@ export const trelloGetUserBoardsTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             filter: {
                 type: 'string',
                 enum: ['all', 'open', 'closed'],
@@ -109,14 +101,6 @@ export const trelloGetMemberTool = {
     inputSchema: {
         type: 'object',
         properties: {
-            apiKey: {
-                type: 'string',
-                description: 'Trello API key (optional if TRELLO_API_KEY env var is set)'
-            },
-            token: {
-                type: 'string',
-                description: 'Trello API token (optional if TRELLO_TOKEN env var is set)'
-            },
             memberId: {
                 type: 'string',
                 description: 'ID or username of the member to retrieve (use "me" for current user)',

@@ -12,7 +12,7 @@ const pkg = createRequire(import.meta.url)('../package.json');
 if (!process.env.TRELLO_API_KEY || !process.env.TRELLO_TOKEN) {
     process.stderr.write(`${pkg.name}: warning — TRELLO_API_KEY and/or TRELLO_TOKEN are not set. ` +
         `The server will start, but tool calls will fail until credentials are ` +
-        `provided via env vars or per-tool apiKey/token arguments. ` +
+        `provided via environment variables. ` +
         `See https://github.com/agrath/Trello-Desktop-MCP#credentials\n`);
 }
 // Import tools with credential injection

@@ -25,7 +25,7 @@
       "type": "string",
       "title": "Trello API Key",
       "description": "From trello.com/power-ups/admin → select your Power-Up (or create one) → API Key.",
-      "sensitive": false,
+      "sensitive": true,
       "required": true
     },
     "trello_token": {
