@@ -565,7 +565,7 @@ export class TrelloClient {
             return await this.makeRequest(`/checklists/${checklistId}/checkItems/${checkItemId}`, { method: 'DELETE' }, `Delete check item ${checkItemId}`);
         }
         catch (error) {
-            if (error instanceof Response && error.status === 400) {
+            if (error && typeof error === 'object' && error.status === 400) {
                 return { data: null, rateLimit: undefined };
             }
             throw error;

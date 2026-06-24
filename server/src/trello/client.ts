@@ -914,7 +914,7 @@ export class TrelloClient {
         `Delete check item ${checkItemId}`
       );
     } catch (error: unknown) {
-      if (error instanceof Response && error.status === 400) {
+      if (error && typeof error === 'object' && (error as TrelloError).status === 400) {
         return { data: null as unknown as void, rateLimit: undefined };
       }
       throw error;
