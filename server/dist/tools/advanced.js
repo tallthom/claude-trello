@@ -197,7 +197,7 @@ export async function handleTrelloGetBoardCards(args) {
             cards = cards.slice(0, cardLimit);
         }
         const totalReturned = cards.length;
-        const hasMore = response.data.length > cardLimit;
+        const hasMore = response.data.length >= cardLimit;
         // Build result based on compact mode (default: true)
         const result = useCompact ? {
             summary: `Found ${totalReturned} card(s) in board${hasMore ? ' (more available)' : ''}`,

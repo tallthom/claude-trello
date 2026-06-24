@@ -245,7 +245,7 @@ export async function handleTrelloGetBoardCards(args: unknown) {
     }
 
     const totalReturned = cards.length;
-    const hasMore = response.data.length > cardLimit;
+    const hasMore = response.data.length >= cardLimit;
 
     // Build result based on compact mode (default: true)
     const result = useCompact ? {
