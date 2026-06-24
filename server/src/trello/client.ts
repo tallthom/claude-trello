@@ -218,6 +218,7 @@ export class TrelloClient {
               maxRetries: this.retryConfig.maxRetries 
             });
             insights.trackEvent('TrelloRateLimit', { operation, attempt, retryAfter });
+            lastError = response;
             await this.sleep(retryAfter * 1000);
             continue;
           }
