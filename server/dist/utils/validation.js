@@ -11,9 +11,12 @@ import { z } from 'zod';
 export function extractTrelloId(input) {
     const trimmed = input.trim();
     // Try to parse as a Trello URL
-    const urlMatch = trimmed.match(/trello\.com\/[a-z]\/([a-zA-Z0-9]+)/i);
-    if (urlMatch) {
-        return urlMatch[1];
+    if (trimmed.includes('trello.com')) {
+        const urlMatch = trimmed.match(/trello\.com\/[a-z]\/([a-zA-Z0-9]+)/i);
+        if (urlMatch) {
+            return urlMatch[1];
+        }
+        throw new Error(`Unrecognised Trello URL format: "${trimmed}". Expected a URL like https://trello.com/c/EOY1CRmz/... or https://trello.com/b/lntO1GVb/...`);
     }
     // Already a valid ID (24-char hex or short alphanumeric)
     return trimmed;
