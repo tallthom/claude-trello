@@ -142,6 +142,5 @@ class Logger {
     }
 }
 export const logger = new Logger();
-export const pino_logger = pinoLogger;
 export { originalConsole };
 //# sourceMappingURL=logger.js.map

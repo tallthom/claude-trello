@@ -1,4 +1,3 @@
-import pino from 'pino';
 interface LogContext {
     [key: string]: any;
 }
@@ -33,7 +32,6 @@ declare class Logger {
     apiCall(endpoint: string, method: string, status: number, duration: number, rateLimit?: any): void;
 }
 export declare const logger: Logger;
-export declare const pino_logger: pino.Logger<never, boolean>;
 export { originalConsole };
 export type { LogContext };
 //# sourceMappingURL=logger.d.ts.map

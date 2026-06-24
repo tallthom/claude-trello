@@ -241,10 +241,9 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
 
-  try {
-    let result;
+  let result;
 
-    switch (name) {
+  switch (name) {
       // Phase 1: Essential tools
       case 'trello_search':
         result = await handleTrelloSearch(args);
@@ -440,11 +439,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         throw new Error(`Unknown tool: ${name}`);
     }
 
-    return result;
-
-  } catch (error) {
-    throw error;
-  }
+  return result;
 });
 
 // List resources (empty for now)
@@ -458,11 +453,13 @@ server.setRequestHandler(ListPromptsRequestSchema, async () => {
 });
 
 // Error handler
-process.on('uncaughtException', (_error) => {
+process.on('uncaughtException', (error) => {
+  process.stderr.write(`${pkg.name}: uncaught exception — ${error?.message ?? error}\n`);
   process.exit(1);
 });
 
-process.on('unhandledRejection', (_reason) => {
+process.on('unhandledRejection', (reason) => {
+  process.stderr.write(`${pkg.name}: unhandled rejection — ${reason instanceof Error ? reason.message : String(reason)}\n`);
   process.exit(1);
 });
 
