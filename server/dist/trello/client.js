@@ -287,7 +287,7 @@ export class TrelloClient {
     }
     async search(query, options) {
         const params = {
-            query: encodeURIComponent(query)
+            query: query
         };
         if (options?.modelTypes) {
             params.modelTypes = options.modelTypes.join(',');
